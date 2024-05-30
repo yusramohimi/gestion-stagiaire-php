@@ -56,10 +56,5 @@ if(isset($_SESSION['loginError'])){
             </div>
     </div>
 </div>
-<?php
-    if (isset($_GET['error'])) {
-        echo "<p style='color:red'>" . htmlspecialchars($_GET['error']) . "</p>";
-    }
-    ?>
 </body>
 </html>

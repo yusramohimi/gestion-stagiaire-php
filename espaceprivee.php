@@ -110,10 +110,10 @@ $stagiaires = $statement_stagiaires->fetchAll(PDO::FETCH_ASSOC);
                         <a href="modifier.php?id=<?= $stagiaire['idStagiaire'] ?>"><button type="submit" name="modifier" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Modifier</button></a>
                     
 
-                        <form action="supprimer.php" method="POST" onsubmit="return confirmSuppression(e)">
+                        <form action="supprimer.php" method="POST" id="form-supprimer" onsubmit="confirmSuppression(event)">
                             <input type="hidden" name="id" value="<?php echo $stagiaire['idStagiaire']; ?>">
                             <input type="hidden" name="_method" value="delete">
-                            <input type="submit" value="Supprimer" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded" >
+                            <input type="submit" value="Supprimer" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"  >
                         </form>
                         
                     </td>
@@ -123,11 +123,10 @@ $stagiaires = $statement_stagiaires->fetchAll(PDO::FETCH_ASSOC);
 	</table>
     <script>
         
-        function confirmSuppression(e) {
+        function confirmSuppression(event) {
+            event.preventDefault();
             if (confirm('Êtes-vous sûr de vouloir supprimer ce stagiaire ?')) {
-                return true
-            }else{
-                e.preventDefault();
+                document.getElementById('form-supprimer').submit();
             }
         }
     </script>

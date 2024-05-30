@@ -10,7 +10,7 @@ $dsn = "mysql:host={$host};port={$port};dbname={$dbname};charset=utf8";
 try{
 
     $pdo = new PDO($dsn, $user, $password);
-    echo ' Connected successfuly';
+    // echo ' Connected successfuly';
 }catch(PDOException $e){
     echo'Connection Failed :' . $e->getMessage();
 
